@@ -53,10 +53,9 @@
             textBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBox2.Location = new Point(265, 213);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(247, 23);
+            textBox2.Size = new Size(250, 23);
             textBox2.TabIndex = 9;
             textBox2.Text = "password";
-            textBox2.TextAlign = HorizontalAlignment.Center;
             // 
             // RegisterLabel
             // 
@@ -73,17 +72,16 @@
             textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBox1.Location = new Point(265, 155);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(247, 23);
+            textBox1.Size = new Size(250, 23);
             textBox1.TabIndex = 7;
             textBox1.Text = "username";
-            textBox1.TextAlign = HorizontalAlignment.Center;
             // 
             // button1
             // 
             button1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             button1.Location = new Point(265, 271);
             button1.Name = "button1";
-            button1.Size = new Size(247, 23);
+            button1.Size = new Size(250, 23);
             button1.TabIndex = 6;
             button1.Text = "Register";
             button1.UseVisualStyleBackColor = true;
@@ -93,10 +91,9 @@
             textBox3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBox3.Location = new Point(265, 184);
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(247, 23);
+            textBox3.Size = new Size(250, 23);
             textBox3.TabIndex = 11;
             textBox3.Text = "email";
-            textBox3.TextAlign = HorizontalAlignment.Center;
             textBox3.TextChanged += textBox3_TextChanged;
             // 
             // SignUpForm
@@ -116,6 +113,7 @@
             MinimizeBox = false;
             Name = "SignUpForm";
             Text = "SignUpForm";
+            Load += SignUpForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }

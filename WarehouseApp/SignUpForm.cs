@@ -26,5 +26,10 @@ namespace WarehouseApp
         {
 
         }
+
+        private void SignUpForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

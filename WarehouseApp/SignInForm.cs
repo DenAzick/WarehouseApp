@@ -7,25 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WarehouseApp.Context;
 
 namespace WarehouseApp
 {
     public partial class SignInForm : Form
     {
-        private readonly AppDbContext _context;
-        public SignInForm(AppDbContext context)
+        public SignInForm()
         {
             InitializeComponent();
-            _context = context;
         }
 
         private void SignInForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
         {
 
         }
