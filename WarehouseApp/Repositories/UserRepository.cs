@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using WarehouseApp.Context;
 using WarehouseApp.Interfaces;
@@ -9,9 +10,11 @@ namespace WarehouseApp.Repositories;
 public class UserRepository : IUserRepository
 {
     private readonly AppDbContext _context;
-    public UserRepository(AppDbContext context)
+    private readonly IMapper _mapper;
+    public UserRepository(AppDbContext context, IMapper mapper)
     {
         _context = context;
+        _mapper = mapper;
     }
 
     public async Task<bool> CreateUserAsync(RegistrationDto dto)
@@ -37,59 +40,68 @@ public class UserRepository : IUserRepository
 
     public async Task<List<UserDto>> GetAllUsersAsync()
     {
-        return await _context.Users
-        .Select(u => new UserDto
-        {
-            Username = u.Username,
-            Email = u.Email,
-            Role = u.Role
-        })
-        .ToListAsync();
+        //if (role == ERoles.Operator)
+        //    throw new UnauthorizedAccessException("access denied");
+
+        var users = await _context.Users.ToListAsync();
+        return _mapper.Map<List<UserDto>>(users);
     }
 
     public async Task<UserDto?> GetUserByIdAsync(int id)
     {
-        return await _context.Users
-        .Where(u => u.Id == id)
-        .Select(u => new UserDto
-        {
-            Username = u.Username,
-            Email = u.Email,
-            Role = u.Role
-        })
-        .FirstOrDefaultAsync();
+        //if (role == ERoles.Operator)
+        //    throw new UnauthorizedAccessException("access denied");
+
+        var user = await _context.Users.FindAsync(id);
+        if (user == null) return null;
+
+        return _mapper.Map<UserDto>(user);
     }
 
     public async Task<UserDto?> GetUserByUsernameAsync(string username)
     {
-        return await _context.Users
-        .Where(u => u.Username == username)
-        .Select(u => new UserDto
-        {
-            Username = u.Username,
-            Email = u.Email,
-            Role = u.Role
-        })
-        .FirstOrDefaultAsync();
+        //if (role == ERoles.Operator)
+        //    throw new UnauthorizedAccessException("access denied");
+
+        var user = await _context.Users
+         .FirstOrDefaultAsync(u => u.Username == username);
+
+        if (user == null) return null;
+
+        return _mapper.Map<UserDto>(user);
     }
 
-    public async Task<UserDto?> LoginUserAsync(LoginDto dto)
+    public async Task<bool> LoginUserAsync(LoginDto dto)
     {
         var user = await _context.Users
-        .Where(u => u.Username == dto.Username && u.PasswordHash == dto.Password)
-        .Select(u => new UserDto
-        {
-            Username = u.Username,
-            Email = u.Email,
-            Role = u.Role
-        })
-        .FirstOrDefaultAsync();
+        .FirstOrDefaultAsync(u => u.Username == dto.Username);
 
-        return user;
+        if (user == null) return false;
+
+        var passwordHasher = new PasswordHasher<User>();
+
+        var result = passwordHasher.VerifyHashedPassword(user, user.PasswordHash, dto.Password);
+
+        return result == PasswordVerificationResult.Success;
     }
 
     public async Task<bool> UpdateUserAsync(int id, RegistrationDto dto)
     {
-        throw new NotImplementedException();
+        var user = await _context.Users.FindAsync(id);
+        if (user == null)
+            return false;
+
+        user.Username = dto.Username;
+        user.Email = dto.Email;
+
+        if (!string.IsNullOrWhiteSpace(dto.Password))
+        {
+            var hasher = new PasswordHasher<User>();
+            user.PasswordHash = hasher.HashPassword(user, dto.Password);
+        }
+
+        _context.Users.Update(user);
+        await _context.SaveChangesAsync();
+        return true;
     }
 }

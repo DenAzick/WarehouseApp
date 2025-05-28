@@ -5,7 +5,7 @@ namespace WarehouseApp.Interfaces;
 public interface IUserRepository
 {
     Task<bool> CreateUserAsync(RegistrationDto dto);
-    Task<UserDto?> LoginUserAsync(LoginDto dto);
+    Task<bool> LoginUserAsync(LoginDto dto);
     Task<bool> UpdateUserAsync(int id, RegistrationDto dto);
     Task<List<UserDto>> GetAllUsersAsync();
     Task<UserDto?> GetUserByIdAsync(int id);

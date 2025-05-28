@@ -1,6 +1,8 @@
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using WarehouseApp.Context;
+using WarehouseApp.Services;
 
 namespace WarehouseApp
 {
@@ -20,6 +22,11 @@ namespace WarehouseApp
 
             services.AddTransient<MainForm>();
             services.AddTransient<SignInForm>();
+
+            services.AddSingleton(new MapperConfiguration(mapper =>
+            {
+                mapper.AddProfile<AutoMapperService>();
+            }).CreateMapper());
 
             var serviceProvider = services.BuildServiceProvider();
 
