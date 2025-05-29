@@ -29,32 +29,33 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SignInForm));
-            textBox3 = new TextBox();
-            linkLabel1 = new LinkLabel();
+            textBoxPassword = new TextBox();
+            linkLblSignUp = new LinkLabel();
             lblSignIn = new Label();
-            textBox1 = new TextBox();
-            button1 = new Button();
+            textBoxUsername = new TextBox();
+            btnLogin = new Button();
             SuspendLayout();
             // 
-            // textBox3
+            // textBoxPassword
             // 
-            textBox3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBox3.Location = new Point(274, 220);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(250, 23);
-            textBox3.TabIndex = 17;
-            textBox3.Text = "password";
+            textBoxPassword.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            textBoxPassword.Location = new Point(274, 220);
+            textBoxPassword.Name = "textBoxPassword";
+            textBoxPassword.Size = new Size(250, 23);
+            textBoxPassword.TabIndex = 17;
+            textBoxPassword.Text = "password";
             // 
-            // linkLabel1
+            // linkLblSignUp
             // 
-            linkLabel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            linkLabel1.Location = new Point(11, 353);
-            linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(762, 134);
-            linkLabel1.TabIndex = 16;
-            linkLabel1.TabStop = true;
-            linkLabel1.Text = "Sign in?";
-            linkLabel1.TextAlign = ContentAlignment.TopCenter;
+            linkLblSignUp.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            linkLblSignUp.Location = new Point(11, 353);
+            linkLblSignUp.Name = "linkLblSignUp";
+            linkLblSignUp.Size = new Size(762, 21);
+            linkLblSignUp.TabIndex = 16;
+            linkLblSignUp.TabStop = true;
+            linkLblSignUp.Text = "Sign up?";
+            linkLblSignUp.TextAlign = ContentAlignment.TopCenter;
+            linkLblSignUp.LinkClicked += linkLblSignUp_LinkClicked;
             // 
             // lblSignIn
             // 
@@ -67,52 +68,52 @@
             lblSignIn.Text = "Sign in";
             lblSignIn.TextAlign = ContentAlignment.TopCenter;
             // 
-            // textBox1
+            // textBoxUsername
             // 
-            textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBox1.Location = new Point(274, 191);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(247, 23);
-            textBox1.TabIndex = 13;
-            textBox1.Text = "username";
+            textBoxUsername.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            textBoxUsername.Location = new Point(274, 191);
+            textBoxUsername.Name = "textBoxUsername";
+            textBoxUsername.Size = new Size(247, 23);
+            textBoxUsername.TabIndex = 13;
+            textBoxUsername.Text = "username";
             // 
-            // button1
+            // btnLogin
             // 
-            button1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            button1.Location = new Point(274, 249);
-            button1.Name = "button1";
-            button1.Size = new Size(250, 23);
-            button1.TabIndex = 12;
-            button1.Text = "Register";
-            button1.UseVisualStyleBackColor = true;
+            btnLogin.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnLogin.Location = new Point(274, 249);
+            btnLogin.Name = "btnLogin";
+            btnLogin.Size = new Size(250, 23);
+            btnLogin.TabIndex = 12;
+            btnLogin.Text = "Login";
+            btnLogin.UseVisualStyleBackColor = true;
+            btnLogin.Click += btnLogin_Click;
             // 
             // SignInForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(784, 561);
-            Controls.Add(textBox3);
-            Controls.Add(linkLabel1);
+            Controls.Add(textBoxPassword);
+            Controls.Add(linkLblSignUp);
             Controls.Add(lblSignIn);
-            Controls.Add(textBox1);
-            Controls.Add(button1);
+            Controls.Add(textBoxUsername);
+            Controls.Add(btnLogin);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "SignInForm";
             Text = "SignInForm";
-            Load += SignInForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private TextBox textBox3;
-        private LinkLabel linkLabel1;
+        private TextBox textBoxPassword;
+        private LinkLabel linkLblSignUp;
         private Label lblSignIn;
-        private TextBox textBox1;
-        private Button button1;
+        private TextBox textBoxUsername;
+        private Button btnLogin;
     }
 }

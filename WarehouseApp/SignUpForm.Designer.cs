@@ -29,33 +29,34 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SignUpForm));
-            linkLabel1 = new LinkLabel();
-            textBox2 = new TextBox();
+            linkLlbSignIn = new LinkLabel();
+            textBoxPassword = new TextBox();
             RegisterLabel = new Label();
-            textBox1 = new TextBox();
-            button1 = new Button();
-            textBox3 = new TextBox();
+            textBoxUsername = new TextBox();
+            btnRegister = new Button();
+            textBoxEmail = new TextBox();
             SuspendLayout();
             // 
-            // linkLabel1
+            // linkLlbSignIn
             // 
-            linkLabel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            linkLabel1.Location = new Point(2, 317);
-            linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(778, 23);
-            linkLabel1.TabIndex = 10;
-            linkLabel1.TabStop = true;
-            linkLabel1.Text = "Sign in?";
-            linkLabel1.TextAlign = ContentAlignment.TopCenter;
+            linkLlbSignIn.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            linkLlbSignIn.Location = new Point(2, 317);
+            linkLlbSignIn.Name = "linkLlbSignIn";
+            linkLlbSignIn.Size = new Size(778, 23);
+            linkLlbSignIn.TabIndex = 10;
+            linkLlbSignIn.TabStop = true;
+            linkLlbSignIn.Text = "Sign in?";
+            linkLlbSignIn.TextAlign = ContentAlignment.TopCenter;
+            linkLlbSignIn.LinkClicked += linkLlbSignIn_LinkClicked;
             // 
-            // textBox2
+            // textBoxPassword
             // 
-            textBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBox2.Location = new Point(265, 213);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(250, 23);
-            textBox2.TabIndex = 9;
-            textBox2.Text = "password";
+            textBoxPassword.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            textBoxPassword.Location = new Point(265, 213);
+            textBoxPassword.Name = "textBoxPassword";
+            textBoxPassword.Size = new Size(250, 23);
+            textBoxPassword.TabIndex = 9;
+            textBoxPassword.Text = "password";
             // 
             // RegisterLabel
             // 
@@ -67,64 +68,63 @@
             RegisterLabel.Text = "Sign up";
             RegisterLabel.TextAlign = ContentAlignment.TopCenter;
             // 
-            // textBox1
+            // textBoxUsername
             // 
-            textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBox1.Location = new Point(265, 155);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(250, 23);
-            textBox1.TabIndex = 7;
-            textBox1.Text = "username";
+            textBoxUsername.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            textBoxUsername.Location = new Point(265, 155);
+            textBoxUsername.Name = "textBoxUsername";
+            textBoxUsername.Size = new Size(250, 23);
+            textBoxUsername.TabIndex = 7;
+            textBoxUsername.Text = "username";
             // 
-            // button1
+            // btnRegister
             // 
-            button1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            button1.Location = new Point(265, 271);
-            button1.Name = "button1";
-            button1.Size = new Size(250, 23);
-            button1.TabIndex = 6;
-            button1.Text = "Register";
-            button1.UseVisualStyleBackColor = true;
+            btnRegister.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnRegister.Location = new Point(265, 271);
+            btnRegister.Name = "btnRegister";
+            btnRegister.Size = new Size(250, 23);
+            btnRegister.TabIndex = 6;
+            btnRegister.Text = "Register";
+            btnRegister.UseVisualStyleBackColor = true;
+            btnRegister.Click += btnRegister_Click;
             // 
-            // textBox3
+            // textBoxEmail
             // 
-            textBox3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBox3.Location = new Point(265, 184);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(250, 23);
-            textBox3.TabIndex = 11;
-            textBox3.Text = "email";
-            textBox3.TextChanged += textBox3_TextChanged;
+            textBoxEmail.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            textBoxEmail.Location = new Point(265, 184);
+            textBoxEmail.Name = "textBoxEmail";
+            textBoxEmail.Size = new Size(250, 23);
+            textBoxEmail.TabIndex = 11;
+            textBoxEmail.Text = "email";
             // 
             // SignUpForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(784, 561);
-            Controls.Add(textBox3);
-            Controls.Add(linkLabel1);
-            Controls.Add(textBox2);
+            Controls.Add(textBoxEmail);
+            Controls.Add(linkLlbSignIn);
+            Controls.Add(textBoxPassword);
             Controls.Add(RegisterLabel);
-            Controls.Add(textBox1);
-            Controls.Add(button1);
+            Controls.Add(textBoxUsername);
+            Controls.Add(btnRegister);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "SignUpForm";
             Text = "SignUpForm";
-            Load += SignUpForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private LinkLabel linkLabel1;
-        private TextBox textBox2;
+        private LinkLabel linkLlbSignIn;
+        private TextBox textBoxPassword;
         private Label RegisterLabel;
-        private TextBox textBox1;
-        private Button button1;
-        private TextBox textBox3;
+        private TextBox textBoxUsername;
+        private Button btnRegister;
+        private TextBox textBoxEmail;
     }
 }

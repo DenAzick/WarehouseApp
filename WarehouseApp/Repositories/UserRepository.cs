@@ -27,7 +27,7 @@ public class UserRepository : IUserRepository
             Username = dto.Username,
             Email = dto.Email,
             Role = ERoles.Operator,
-            CreatedAt = DateTime.Now
+            //CreatedAt = DateTime.UtcNow
         };
 
         var hasher = new PasswordHasher<User>();
@@ -81,6 +81,9 @@ public class UserRepository : IUserRepository
         var passwordHasher = new PasswordHasher<User>();
 
         var result = passwordHasher.VerifyHashedPassword(user, user.PasswordHash, dto.Password);
+
+        if (result != PasswordVerificationResult.Success)
+            return false;
 
         return result == PasswordVerificationResult.Success;
     }

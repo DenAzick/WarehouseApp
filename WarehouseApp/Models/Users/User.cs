@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WarehouseApp.Models.Users;
 
@@ -8,10 +9,12 @@ public class User
     public required string Username { get; set; }
     public string? Email { get; set; }
     public string PasswordHash { get; set; }
-    public DateTime CreatedAt { get; set; } = DateTime.Now;
+
+    //[Column(TypeName = "timestamp with time zone")]
+    //public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     public DateTime? DeletedAt { get; set; }
 
-    public ERoles Role {  get; set; } = ERoles.Operator;
+    public ERoles Role { get; set; } = ERoles.Operator;
 
 }
 

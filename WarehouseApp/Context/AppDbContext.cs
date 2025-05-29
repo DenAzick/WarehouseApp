@@ -16,6 +16,11 @@ public class AppDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        //modelBuilder.Entity<User>()
+        //.Property(u => u.CreatedAt)
+        //.HasColumnType("timestamp with time zone")
+        //.HasDefaultValueSql("now()");
+
         modelBuilder.Entity<User>()
         .Property(u => u.Role)
         .HasConversion<string>();
@@ -24,9 +29,9 @@ public class AppDbContext : DbContext
         .HasIndex(u => u.Username)
         .IsUnique();
 
-        modelBuilder.Entity<User>()
-        .HasIndex(u => u.Email)
-        .IsUnique();
+        //modelBuilder.Entity<User>()
+        //.HasIndex(u => u.Email)
+        //.IsUnique();
 
 
         modelBuilder.Entity<Warehouse>()
