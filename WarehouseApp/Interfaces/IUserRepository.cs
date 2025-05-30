@@ -10,4 +10,5 @@ public interface IUserRepository
     Task<List<UserDto>> GetAllUsersAsync();
     Task<UserDto?> GetUserByIdAsync(int id);
     Task<UserDto?> GetUserByUsernameAsync(string username);
+    Task<bool> DeleteUserAsync(int id);
 }

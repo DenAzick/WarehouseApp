@@ -9,6 +9,6 @@ public class Category
     public int WarehouseId { get; set; }
     public Warehouse Warehouse { get; set; } = null!;
 
-    public List<Product> Products { get; set; } = new List<Product>();
+    public ICollection<Product> Products { get; set; } = new List<Product>();
 
 }

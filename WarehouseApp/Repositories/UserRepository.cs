@@ -40,17 +40,13 @@ public class UserRepository : IUserRepository
 
     public async Task<List<UserDto>> GetAllUsersAsync()
     {
-        //if (role == ERoles.Operator)
-        //    throw new UnauthorizedAccessException("access denied");
-
         var users = await _context.Users.ToListAsync();
         return _mapper.Map<List<UserDto>>(users);
     }
 
     public async Task<UserDto?> GetUserByIdAsync(int id)
     {
-        //if (role == ERoles.Operator)
-        //    throw new UnauthorizedAccessException("access denied");
+        
 
         var user = await _context.Users.FindAsync(id);
         if (user == null) return null;
@@ -60,8 +56,7 @@ public class UserRepository : IUserRepository
 
     public async Task<UserDto?> GetUserByUsernameAsync(string username)
     {
-        //if (role == ERoles.Operator)
-        //    throw new UnauthorizedAccessException("access denied");
+        
 
         var user = await _context.Users
          .FirstOrDefaultAsync(u => u.Username == username);
@@ -107,4 +102,11 @@ public class UserRepository : IUserRepository
         await _context.SaveChangesAsync();
         return true;
     }
+
+    public async Task<bool> DeleteUserAsync(int id)
+    {
+        return false;
+    }
+
+   
 }

@@ -23,10 +23,15 @@ namespace WarehouseApp
                 options.UseNpgsql("Host=localhost;Database=warehouseDb;Username=postgres;Password=denazick"));
 
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
 
             services.AddTransient<MainForm>();
             services.AddTransient<SignInForm>();
             services.AddTransient<SignUpForm>();
+            services.AddTransient<SettingsForm>();
+            services.AddTransient<AddProductForm>();
+            services.AddTransient<EditProductForm>();
 
             services.AddSingleton(new MapperConfiguration(mapper =>
             {

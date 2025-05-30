@@ -48,9 +48,13 @@
             // dataGridView1
             // 
             dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(309, 43);
+            dataGridView1.MultiSelect = false;
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(1029, 567);
             dataGridView1.TabIndex = 0;
             // 
@@ -62,6 +66,7 @@
             btnAddProduct.TabIndex = 1;
             btnAddProduct.Text = "Add product";
             btnAddProduct.UseVisualStyleBackColor = true;
+            btnAddProduct.Click += btnAddProduct_Click;
             // 
             // btnEditProduct
             // 
@@ -71,6 +76,7 @@
             btnEditProduct.TabIndex = 2;
             btnEditProduct.Text = "Edit product";
             btnEditProduct.UseVisualStyleBackColor = true;
+            btnEditProduct.Click += btnEditProduct_Click;
             // 
             // btnDeleteProduct
             // 
@@ -80,6 +86,7 @@
             btnDeleteProduct.TabIndex = 3;
             btnDeleteProduct.Text = "Delete Product";
             btnDeleteProduct.UseVisualStyleBackColor = true;
+            btnDeleteProduct.Click += btnDeleteProduct_Click;
             // 
             // btnSettings
             // 
@@ -89,6 +96,7 @@
             btnSettings.TabIndex = 4;
             btnSettings.Text = "Settings";
             btnSettings.UseVisualStyleBackColor = true;
+            btnSettings.Click += btnSettings_Click;
             // 
             // pictureBox1
             // 
